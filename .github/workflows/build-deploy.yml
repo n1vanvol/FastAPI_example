@@ -22,15 +22,17 @@ jobs:
       postgres:
         image: postgres
         env:
-          POSTGRES_PASSWORD: n1vanvol
-          POSTGRES_DB: fastapi_test
+          POSTGRES_PASSWORD: ${{env.DATABASE_PASSWORD }}  
+          POSTGRES_DB: ${{env.DATABASE_NAME}}
         ports:
           - 5432:5432
         options: >-
-          --health-cmd pg isready
+          --health-cmd pg_isready
           --health-interval 10s
           --health-timeout 5s
           --health-retries 5
+
+
 
     runs-on: ubuntu-latest
     steps:
