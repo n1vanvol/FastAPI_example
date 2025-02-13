@@ -22,8 +22,8 @@ jobs:
       postgres:
         image: postgres
         env:
-          POSTGRES_PASSWORD: ${{ secrets.DATABASE_PASSWORD }}
-          POSTGRES_DB: ${{secrets.DATABASE_NAME}}_test
+          POSTGRES_PASSWORD: n1vanvol
+          POSTGRES_DB: fastapi_test
         ports:
           - 5432:5432
         options: >-
@@ -31,7 +31,6 @@ jobs:
           --health-interval 10s
           --health-timeout 5s
           --health-retries 5
-          
     runs-on: ubuntu-latest
     steps:
       - name: Pulling git repo
